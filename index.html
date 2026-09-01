@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Master AI Platform</title>
+    <meta name="description" content="Master AI Platform - AI Agents, Tools and Digital Services">
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-left">
+        <button class="menu-icon" onclick="openNav()">☰</button>
+        <h2>Master AI Platform</h2>
+    </div>
+
+    <div class="header-buttons">
+        <a class="owner-link" href="owner.html">Owner</a>
+    </div>
+</header>
+
+
+<!-- SIDEBAR -->
+
+<div id="mySidebar" class="sidebar">
+
+    <button class="closebtn" onclick="closeNav()">×</button>
+
+    <a onclick="goHome()">🏠 Home</a>
+    <a onclick="openProfile()">👤 Profile</a>
+    <a onclick="openShareOptions()">📤 Share Platform</a>
+    <a onclick="openSupport()">📞 Support</a>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div id="profileModal" class="overlay" style="display:none;">
+
+    <div class="modal">
+
+        <button class="modal-close" onclick="closeProfile()">×</button>
+
+        <div class="profile-image">
+            🤖
+        </div>
+
+        <h2>Master AI Platform</h2>
+
+        <p>
+            Official Digital Platform for AI Agents,
+            Tools and Digital Services.
+        </p>
+
+        <button class="primary-btn" onclick="closeProfile()">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- SHARE -->
+
+<div id="shareModal" class="overlay" style="display:none;">
+
+    <div class="modal">
+
+        <button class="modal-close" onclick="closeShareOptions()">×</button>
+
+        <h2>📤 Share Platform</h2>
+
+        <button class="primary-btn" onclick="copyPlatformLink()">
+            📋 Copy Link
+        </button>
+
+        <button class="secondary-btn" onclick="nativeShare()">
+            📤 Share
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- MAIN -->
+
+<main class="main-container">
+
+    <section class="welcome-box">
+
+        <h1>Master AI Platform</h1>
+
+        <p>
+            AI Agents, Tools এবং Digital Services এক জায়গায়।
+        </p>
+
+    </section>
+
+
+    <!-- SEARCH -->
+
+    <section class="social-box">
+
+        <input
+            type="search"
+            id="mainSearch"
+            class="search-bar"
+            placeholder="🔍 Search apps, agents, tools..."
+            oninput="filterCards()"
+        >
+
+    </section>
+
+
+    <!-- PUBLIC PROJECTS -->
+
+    <section>
+
+        <div class="section-title">
+            🌐 Public Projects
+        </div>
+
+        <div class="grid-container" id="publicGrid">
+
+            <div
+                class="card green-top"
+                data-search="youtube video editor"
+                onclick="openProject('youtube-editor')"
+            >
+                <div class="card-icon">🎬</div>
+
+                <span>
+                    YouTube Editor
+                </span>
+
+                <small>
+                    Video Editing
+                </small>
+            </div>
+
+
+            <div
+                class="card green-top"
+                data-search="ai agent"
+                onclick="openProject('ai-agent')"
+            >
+                <div class="card-icon">🤖</div>
+
+                <span>
+                    AI Agent
+                </span>
+
+                <small>
+                    Smart Agent
+                </small>
+            </div>
+
+
+            <div
+                class="card green-top"
+                data-search="ai tools"
+                onclick="openProject('ai-tools')"
+            >
+                <div class="card-icon">🧰</div>
+
+                <span>
+                    AI Tools
+                </span>
+
+                <small>
+                    Tools Hub
+                </small>
+            </div>
+
+
+            <div
+                class="card green-top"
+                data-search="chat assistant"
+                onclick="openProject('chat')"
+            >
+                <div class="card-icon">💬</div>
+
+                <span>
+                    AI Chat
+                </span>
+
+                <small>
+                    Assistant
+                </small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOLLOW -->
+
+    <section class="stats-box">
+
+        <div>
+            👥
+            <strong id="followers">
+                0 Followers
+            </strong>
+        </div>
+
+        <button
+            class="follow-btn"
+            id="followButton"
+            onclick="followPlatform()"
+        >
+            Follow
+        </button>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section class="info-box">
+
+        <h3>🚀 Master AI Platform</h3>
+
+        <p>
+            এখানে AI Agent, AI Tools এবং বিভিন্ন Digital
+            Project ব্যবহার ও পরিচালনা করা যাবে।
+        </p>
+
+    </section>
+
+</main>
+
+
+<footer class="footer">
+
+    <strong>Master AI Platform</strong>
+
+    <p>
+        © 2026 All Rights Reserved
+    </p>
+
+</footer>
+
+
+<script src="app.js"></script>
+
+</body>
+  </html>
