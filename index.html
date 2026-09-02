@@ -1,339 +1,175 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Master AI Platform">
+  <meta name="robots" content="index, follow">
+  <title>Master AI Platform</title>
 
-<title>Master AI Platform</title>
+  <link rel="stylesheet" href="style.css">
 
-<meta name="description"
-content="Master AI Platform - AI powered website, app and project creation platform">
-
-<meta name="robots" content="index,follow">
-
-<link rel="stylesheet" href="css/style.css">
+  <script src="config.js" defer></script>
+  <script src="auth.js" defer></script>
+  <script src="drive.js" defer></script>
+  <script src="security-agent.js" defer></script>
+  <script src="ai-agent.js" defer></script>
+  <script src="public.js" defer></script>
 </head>
 
 <body>
 
-<div id="maintenance-screen" class="overlay" hidden>
-    <div class="maintenance-card">
-        <div class="maintenance-icon">🚀</div>
-        <h2>We'll Be Back Soon!</h2>
-        <p>
-            Our platform is currently undergoing scheduled maintenance.
-        </p>
-        <div class="status">
-            ⚙️ Status: System Updating...
-        </div>
-    </div>
-</div>
-
 <header class="header">
+  <button id="menuBtn" class="icon-btn">☰</button>
 
-    <div class="header-left">
+  <div class="brand">
+    <strong>Master AI</strong>
+    <span>Platform</span>
+  </div>
 
-        <button class="menu-icon"
-                onclick="openNav()">
-            ☰
-        </button>
-
-        <h2>Master AI</h2>
-
-    </div>
-
+  <div class="header-actions">
+    <button id="loginBtn" class="btn primary">Login</button>
+    <button id="shareBtn" class="btn">Share</button>
+  </div>
 </header>
 
+<aside id="sidebar" class="sidebar">
+  <button id="closeMenu" class="close-btn">×</button>
 
-<div id="mySidebar" class="sidebar">
+  <nav>
+    <a href="#" data-section="home">🏠 Home</a>
+    <a href="#" data-section="profile">👤 Profile</a>
+    <a href="#" id="shareMenu">🔗 Share Platform</a>
+    <a href="#" data-section="support">💬 Support</a>
+  </nav>
+</aside>
 
-    <button class="closebtn"
-            onclick="closeNav()">
-        ×
-    </button>
+<main class="main">
 
-    <a onclick="goHome()">🏠 Home</a>
+  <section id="home" class="page-section">
 
-    <a onclick="openProfile()">👤 Profile</a>
+    <div class="hero card">
+      <h1>Master AI Platform</h1>
+      <p>আপনার AI, Project এবং App এক জায়গা থেকে পরিচালনা করুন।</p>
 
-    <a onclick="openShareOptions()">📤 Share Platform</a>
+      <div class="hero-actions">
+        <button class="btn primary" id="startBtn">Get Started</button>
+        <button class="btn" id="driveBtn">Connect Google Drive</button>
+      </div>
+    </div>
 
-    <a onclick="openSupport()">📞 Support</a>
+    <section class="card">
+      <h2>Social</h2>
 
-</div>
-
-
-<main>
-
-<section class="social-box">
-
-    <input
-        id="main-search"
-        class="search-bar"
+      <input
+        id="socialSearch"
+        class="input"
         type="search"
-        placeholder="🔍 Search apps, agents, projects..."
-        oninput="filterCards()"
-    >
+        placeholder="Social search..."
+      >
 
-    <div class="social-buttons">
+      <div class="social-grid">
+        <button class="social-btn" data-social="whatsapp">WhatsApp</button>
+        <button class="social-btn" data-social="telegram">Telegram</button>
+        <button class="social-btn" data-social="youtube">YouTube</button>
+        <button class="social-btn" data-social="facebook">Facebook</button>
+        <button class="social-btn" data-social="instagram">Instagram</button>
+      </div>
+    </section>
 
-        <button onclick="handleSocialLink('YOUR_WHATSAPP_LINK')">
-            💬 WhatsApp
-        </button>
+    <section class="card stats-card">
+      <div>
+        <span>Followers</span>
+        <strong id="followerCount">0</strong>
+      </div>
 
-        <button onclick="handleSocialLink('YOUR_TELEGRAM_LINK')">
-            ✈️ Telegram
-        </button>
+      <button id="followBtn" class="btn primary">Follow</button>
+    </section>
 
-        <button onclick="handleSocialLink('YOUR_YOUTUBE_LINK')">
-            ▶️ YouTube
-        </button>
+    <section class="card">
+      <div class="section-title">
+        <h2>Public Projects</h2>
+      </div>
 
-        <button onclick="handleSocialLink('YOUR_FACEBOOK_LINK')">
-            📘 Facebook
-        </button>
+      <div id="publicProjects" class="project-grid">
 
-        <button onclick="handleSocialLink('YOUR_INSTAGRAM_LINK')">
-            📷 Instagram
-        </button>
+        <article class="project-card" data-search="blog">
+          <div class="project-icon">📝</div>
+          <h3>BLOG</h3>
+          <p>Blog Project</p>
+        </article>
 
+        <article class="project-card" data-search="video">
+          <div class="project-icon">🎬</div>
+          <h3>VIDEO</h3>
+          <p>Video Project</p>
+        </article>
+
+        <article class="project-card" data-search="game">
+          <div class="project-icon">🎮</div>
+          <h3>GAME</h3>
+          <p>Game Project</p>
+        </article>
+
+        <article class="project-card" data-search="chat">
+          <div class="project-icon">💬</div>
+          <h3>CHAT</h3>
+          <p>Chat Project</p>
+        </article>
+
+      </div>
+    </section>
+
+  </section>
+
+  <section id="profile" class="page-section hidden">
+    <div class="card">
+      <h2>Profile</h2>
+      <div id="profileInfo">
+        <p>Login করলে আপনার Profile এখানে দেখা যাবে।</p>
+      </div>
     </div>
+  </section>
 
-</section>
-
-
-<section class="stats-box">
-
-    <strong id="follower-count-text">
-        👥 0 Followers
-    </strong>
-
-    <button
-        id="follow-action-btn"
-        class="follow-btn"
-        onclick="followAction()">
-
-        Follow
-
-    </button>
-
-</section>
-
-
-<section>
-
-    <div class="section-title">
-        🌐 Public Projects
+  <section id="support" class="page-section hidden">
+    <div class="card">
+      <h2>Support</h2>
+      <p>Master AI Platform Support</p>
+      <button id="supportBtn" class="btn primary">Contact Support</button>
     </div>
-
-    <div id="public-grid"
-         class="grid-container">
-
-        <div class="card"
-             data-search="website web site"
-             onclick="openProject('website')">
-
-            <div class="card-icon">🌐</div>
-
-            <span>WEBSITE</span>
-
-            <small>Website Builder</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="app application"
-             onclick="openProject('app')">
-
-            <div class="card-icon">📱</div>
-
-            <span>APP</span>
-
-            <small>App Builder</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="ai agent artificial intelligence"
-             onclick="openProject('agent')">
-
-            <div class="card-icon">🤖</div>
-
-            <span>AI AGENT</span>
-
-            <small>AI Tools</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="project builder"
-             onclick="openProject('project')">
-
-            <div class="card-icon">🛠️</div>
-
-            <span>PROJECT</span>
-
-            <small>Project Builder</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="blog"
-             onclick="openProject('blog')">
-
-            <div class="card-icon">📝</div>
-
-            <span>BLOG</span>
-
-            <small>Blog Creator</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="video"
-             onclick="openProject('video')">
-
-            <div class="card-icon">🎬</div>
-
-            <span>VIDEO</span>
-
-            <small>Video Tools</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="game"
-             onclick="openProject('game')">
-
-            <div class="card-icon">🎮</div>
-
-            <span>GAME</span>
-
-            <small>Game Builder</small>
-
-        </div>
-
-
-        <div class="card"
-             data-search="chat"
-             onclick="openProject('chat')">
-
-            <div class="card-icon">💬</div>
-
-            <span>CHAT</span>
-
-            <small>AI Chat</small>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="access-card">
-
-    <h3>🔐 Secure User Access</h3>
-
-    <p>
-        Sign in with Google to use Master AI Platform.
-    </p>
-
-    <button
-        id="google-login-btn"
-        class="primary-btn"
-        onclick="startGoogleLogin()">
-
-        🔵 Continue with Google
-
-    </button>
-
-
-    <div id="drive-access-area"
-         hidden>
-
-        <p>
-            Google Drive permission is required to
-            save your platform files.
-        </p>
-
-        <button
-            class="primary-btn"
-            onclick="requestDrivePermission()">
-
-            📁 Allow Google Drive
-
-        </button>
-
-    </div>
-
-</section>
-
-
-<section id="storage-section"
-         class="storage-card"
-         hidden>
-
-    <h3>☁️ Platform Storage</h3>
-
-    <p id="storage-status">
-        Storage checking...
-    </p>
-
-    <div class="storage-bar">
-
-        <div id="storage-progress"></div>
-
-    </div>
-
-    <small>
-        Personal Drive files are protected.
-    </small>
-
-</section>
-
-
-<section class="ai-workspace">
-
-    <h3>🤖 AI Workspace</h3>
-
-    <textarea
-        id="ai-user-command"
-        placeholder="Tell the AI what you want to create...">
-    </textarea>
-
-    <button
-        class="primary-btn"
-        onclick="runPublicAgent()">
-
-        🤖 Start AI Agent
-
-    </button>
-
-    <div id="ai-result">
-        AI result will appear here.
-    </div>
-
-</section>
+  </section>
 
 </main>
 
+<div id="shareModal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" data-close="shareModal">×</button>
+    <h2>Share Platform</h2>
 
-<footer>
-    <strong>Master AI Platform</strong>
-    <br>
-    AI-powered digital creation platform
-</footer>
+    <button id="copyLinkBtn" class="btn full">📋 Copy Link</button>
+    <button id="nativeShareBtn" class="btn full">📤 Share from this phone</button>
 
+    <div class="share-links">
+      <button data-share="whatsapp" class="btn">WhatsApp</button>
+      <button data-share="telegram" class="btn">Telegram</button>
+      <button data-share="facebook" class="btn">Facebook</button>
+    </div>
+  </div>
+</div>
 
-<script src="config/config.js"></script>
-<script src="js/app.js"></script>
+<div id="loginModal" class="modal hidden">
+  <div class="modal-box">
+    <button class="modal-close" data-close="loginModal">×</button>
+    <h2>Google Login</h2>
+    <p>Platform ব্যবহার করতে Google Account দিয়ে Login করুন।</p>
+
+    <button id="googleLoginBtn" class="btn primary full">
+      Continue with Google
+    </button>
+
+    <div id="loginStatus"></div>
+  </div>
+</div>
 
 </body>
 </html>
