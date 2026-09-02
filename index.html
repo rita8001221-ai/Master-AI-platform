@@ -1,1 +1,339 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
+<title>Master AI Platform</title>
+
+<meta name="description"
+content="Master AI Platform - AI powered website, app and project creation platform">
+
+<meta name="robots" content="index,follow">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<div id="maintenance-screen" class="overlay" hidden>
+    <div class="maintenance-card">
+        <div class="maintenance-icon">🚀</div>
+        <h2>We'll Be Back Soon!</h2>
+        <p>
+            Our platform is currently undergoing scheduled maintenance.
+        </p>
+        <div class="status">
+            ⚙️ Status: System Updating...
+        </div>
+    </div>
+</div>
+
+<header class="header">
+
+    <div class="header-left">
+
+        <button class="menu-icon"
+                onclick="openNav()">
+            ☰
+        </button>
+
+        <h2>Master AI</h2>
+
+    </div>
+
+</header>
+
+
+<div id="mySidebar" class="sidebar">
+
+    <button class="closebtn"
+            onclick="closeNav()">
+        ×
+    </button>
+
+    <a onclick="goHome()">🏠 Home</a>
+
+    <a onclick="openProfile()">👤 Profile</a>
+
+    <a onclick="openShareOptions()">📤 Share Platform</a>
+
+    <a onclick="openSupport()">📞 Support</a>
+
+</div>
+
+
+<main>
+
+<section class="social-box">
+
+    <input
+        id="main-search"
+        class="search-bar"
+        type="search"
+        placeholder="🔍 Search apps, agents, projects..."
+        oninput="filterCards()"
+    >
+
+    <div class="social-buttons">
+
+        <button onclick="handleSocialLink('YOUR_WHATSAPP_LINK')">
+            💬 WhatsApp
+        </button>
+
+        <button onclick="handleSocialLink('YOUR_TELEGRAM_LINK')">
+            ✈️ Telegram
+        </button>
+
+        <button onclick="handleSocialLink('YOUR_YOUTUBE_LINK')">
+            ▶️ YouTube
+        </button>
+
+        <button onclick="handleSocialLink('YOUR_FACEBOOK_LINK')">
+            📘 Facebook
+        </button>
+
+        <button onclick="handleSocialLink('YOUR_INSTAGRAM_LINK')">
+            📷 Instagram
+        </button>
+
+    </div>
+
+</section>
+
+
+<section class="stats-box">
+
+    <strong id="follower-count-text">
+        👥 0 Followers
+    </strong>
+
+    <button
+        id="follow-action-btn"
+        class="follow-btn"
+        onclick="followAction()">
+
+        Follow
+
+    </button>
+
+</section>
+
+
+<section>
+
+    <div class="section-title">
+        🌐 Public Projects
+    </div>
+
+    <div id="public-grid"
+         class="grid-container">
+
+        <div class="card"
+             data-search="website web site"
+             onclick="openProject('website')">
+
+            <div class="card-icon">🌐</div>
+
+            <span>WEBSITE</span>
+
+            <small>Website Builder</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="app application"
+             onclick="openProject('app')">
+
+            <div class="card-icon">📱</div>
+
+            <span>APP</span>
+
+            <small>App Builder</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="ai agent artificial intelligence"
+             onclick="openProject('agent')">
+
+            <div class="card-icon">🤖</div>
+
+            <span>AI AGENT</span>
+
+            <small>AI Tools</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="project builder"
+             onclick="openProject('project')">
+
+            <div class="card-icon">🛠️</div>
+
+            <span>PROJECT</span>
+
+            <small>Project Builder</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="blog"
+             onclick="openProject('blog')">
+
+            <div class="card-icon">📝</div>
+
+            <span>BLOG</span>
+
+            <small>Blog Creator</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="video"
+             onclick="openProject('video')">
+
+            <div class="card-icon">🎬</div>
+
+            <span>VIDEO</span>
+
+            <small>Video Tools</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="game"
+             onclick="openProject('game')">
+
+            <div class="card-icon">🎮</div>
+
+            <span>GAME</span>
+
+            <small>Game Builder</small>
+
+        </div>
+
+
+        <div class="card"
+             data-search="chat"
+             onclick="openProject('chat')">
+
+            <div class="card-icon">💬</div>
+
+            <span>CHAT</span>
+
+            <small>AI Chat</small>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="access-card">
+
+    <h3>🔐 Secure User Access</h3>
+
+    <p>
+        Sign in with Google to use Master AI Platform.
+    </p>
+
+    <button
+        id="google-login-btn"
+        class="primary-btn"
+        onclick="startGoogleLogin()">
+
+        🔵 Continue with Google
+
+    </button>
+
+
+    <div id="drive-access-area"
+         hidden>
+
+        <p>
+            Google Drive permission is required to
+            save your platform files.
+        </p>
+
+        <button
+            class="primary-btn"
+            onclick="requestDrivePermission()">
+
+            📁 Allow Google Drive
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<section id="storage-section"
+         class="storage-card"
+         hidden>
+
+    <h3>☁️ Platform Storage</h3>
+
+    <p id="storage-status">
+        Storage checking...
+    </p>
+
+    <div class="storage-bar">
+
+        <div id="storage-progress"></div>
+
+    </div>
+
+    <small>
+        Personal Drive files are protected.
+    </small>
+
+</section>
+
+
+<section class="ai-workspace">
+
+    <h3>🤖 AI Workspace</h3>
+
+    <textarea
+        id="ai-user-command"
+        placeholder="Tell the AI what you want to create...">
+    </textarea>
+
+    <button
+        class="primary-btn"
+        onclick="runPublicAgent()">
+
+        🤖 Start AI Agent
+
+    </button>
+
+    <div id="ai-result">
+        AI result will appear here.
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+    <strong>Master AI Platform</strong>
+    <br>
+    AI-powered digital creation platform
+</footer>
+
+
+<script src="config/config.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
