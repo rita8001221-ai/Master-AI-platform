@@ -1,162 +1,264 @@
 <!DOCTYPE html>
 <html lang="bn">
-
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow, noarchive">
 
-<meta name="viewport"
-content="width=device-width,initial-scale=1.0">
+  <title>Master AI Platform — Owner</title>
 
-<title>Master AI Platform — Owner</title>
+  <link rel="stylesheet" href="style.css">
 
-<meta name="robots"
-content="noindex,nofollow,noarchive">
-
-<link rel="stylesheet"
-href="css/owner.css">
-
+  <script src="config.js" defer></script>
+  <script src="owner-auth.js" defer></script>
+  <script src="drive.js" defer></script>
+  <script src="storage-agent.js" defer></script>
+  <script src="security-agent.js" defer></script>
+  <script src="ai-agent.js" defer></script>
+  <script src="owner.js" defer></script>
 </head>
 
 <body>
 
-<header class="owner-header">
+<header class="header owner-header">
+  <button id="ownerMenuBtn" class="icon-btn">☰</button>
 
-    <h2>🔐 Master AI — Owner Panel</h2>
+  <div class="brand">
+    <strong>Master AI</strong>
+    <span>Owner Panel</span>
+  </div>
 
-    <button onclick="logoutOwner()">
-        Logout
+  <div class="header-actions">
+    <button id="maintenanceBtn" class="btn warning">
+      Maintenance
     </button>
 
+    <button id="ownerLogoutBtn" class="btn danger">
+      Logout
+    </button>
+  </div>
 </header>
 
+<aside id="ownerSidebar" class="sidebar">
 
-<main id="owner-app"
-      class="owner-container"
-      hidden>
+  <button id="closeOwnerMenu" class="close-btn">×</button>
 
+  <nav>
+    <a href="#dashboard">🏠 Dashboard</a>
+    <a href="#agents">🤖 Agent Control</a>
+    <a href="#projects">📁 Projects</a>
+    <a href="#users">👥 Users</a>
+    <a href="#storage">💾 Storage</a>
+    <a href="#security">🛡️ Security</a>
+    <a href="#settings">⚙️ Settings</a>
+  </nav>
 
-<section class="owner-card">
+</aside>
 
-<h3>🤖 Developer Agent</h3>
+<main class="main owner-main">
 
-<p>
-Manage platform features using the Developer Agent.
-</p>
+  <section id="dashboard" class="page-section">
 
-<textarea
-id="owner-command"
-placeholder="যেমন: নতুন feature যোগ করো...">
-</textarea>
+    <div class="hero card">
+      <h1>Master AI Owner Panel</h1>
+      <p>এখান থেকে পুরো Platform পরিচালনা করুন।</p>
+    </div>
 
-<button onclick="runOwnerAgent()">
-Run Developer Agent
-</button>
+    <div class="dashboard-grid">
 
-<div id="owner-agent-result">
-Ready.
-</div>
+      <div class="card">
+        <span>Users</span>
+        <strong id="ownerUserCount">0</strong>
+      </div>
 
-</section>
+      <div class="card">
+        <span>Projects</span>
+        <strong id="ownerProjectCount">0</strong>
+      </div>
 
+      <div class="card">
+        <span>Storage</span>
+        <strong id="ownerStorageStatus">Ready</strong>
+      </div>
 
-<section class="owner-card">
+      <div class="card">
+        <span>Security</span>
+        <strong id="ownerSecurityStatus">Protected</strong>
+      </div>
 
-<h3>⚙️ Maintenance Mode</h3>
+    </div>
 
-<p id="maintenance-status">
-Checking...
-</p>
+  </section>
 
-<button onclick="toggleMaintenance()">
-Toggle Maintenance
-</button>
+  <section id="agents" class="page-section">
 
-</section>
+    <div class="card">
+      <h2>AI Agent Control</h2>
 
+      <textarea
+        id="ownerAICommand"
+        class="textarea"
+        placeholder="বাংলায় AI Agent-কে নির্দেশ দিন..."
+      ></textarea>
 
-<section class="owner-card">
+      <button id="runOwnerAI" class="btn primary">
+        Run AI Command
+      </button>
 
-<h3>💾 Full Platform Export</h3>
+      <div id="ownerAIResult" class="agent-result"></div>
+    </div>
 
-<p>
-Export platform configuration and project data.
-</p>
+  </section>
 
-<button onclick="fullExport()">
-📦 Full Export
-</button>
+  <section id="projects" class="page-section">
 
-</section>
+    <div class="card">
+      <h2>Private Projects</h2>
 
+      <div id="privateProjects" class="project-grid">
 
-<section class="owner-card">
+        <article class="project-card">
+          <div class="project-icon">📱</div>
+          <h3>APP</h3>
+          <p>Private App</p>
+        </article>
 
-<h3>🛡️ Security Agent</h3>
+        <article class="project-card">
+          <div class="project-icon">🛒</div>
+          <h3>SHOP</h3>
+          <p>Private Shop</p>
+        </article>
 
-<p id="security-status">
-Security Agent: Checking...
-</p>
+        <article class="project-card">
+          <div class="project-icon">🌐</div>
+          <h3>WEB</h3>
+          <p>Private Website</p>
+        </article>
 
-<button onclick="securityCheck()">
-Run Security Check
-</button>
+        <article class="project-card">
+          <div class="project-icon">🧰</div>
+          <h3>TOOLS</h3>
+          <p>Private Tools</p>
+        </article>
 
-</section>
+      </div>
+    </div>
 
+  </section>
 
-<section class="owner-card">
+  <section id="users" class="page-section">
 
-<h3>☁️ Storage Manager</h3>
+    <div class="card">
+      <h2>User Management</h2>
+      <div id="userList">
+        Owner access required.
+      </div>
+    </div>
 
-<p id="owner-storage">
-Storage information loading...
-</p>
+  </section>
 
-<button onclick="storageCheck()">
-Check Storage
-</button>
+  <section id="storage" class="page-section">
 
-</section>
+    <div class="card">
+      <h2>Storage Agent</h2>
 
+      <p>
+        শুধুমাত্র Master AI Platform-এর তৈরি ফাইল পরিচালনা করা হবে।
+        ব্যক্তিগত Google Drive ফাইল স্পর্শ করা হবে না।
+      </p>
 
-<section class="owner-card">
+      <button id="checkStorageBtn" class="btn primary">
+        Check Platform Storage
+      </button>
 
-<h3>🚀 Deployment</h3>
+      <button id="cleanupStorageBtn" class="btn warning">
+        Cleanup Old Platform Files
+      </button>
 
-<p>
-Deploy the current platform configuration.
-</p>
+      <div id="storageResult"></div>
+    </div>
 
-<button onclick="deployPlatform()">
-Deploy
-</button>
+  </section>
 
-</section>
+  <section id="security" class="page-section">
+
+    <div class="card">
+      <h2>Security Agent</h2>
+
+      <p id="securityMessage">
+        Security system active.
+      </p>
+
+      <button id="securityScanBtn" class="btn primary">
+        Run Security Check
+      </button>
+
+      <div id="securityLog"></div>
+    </div>
+
+  </section>
+
+  <section id="settings" class="page-section">
+
+    <div class="card">
+      <h2>Platform Settings</h2>
+
+      <label class="switch-row">
+        <span>Wishlist</span>
+        <input id="featureWishlist" type="checkbox">
+      </label>
+
+      <label class="switch-row">
+        <span>Reviews</span>
+        <input id="featureReviews" type="checkbox">
+      </label>
+
+      <label class="switch-row">
+        <span>Chat</span>
+        <input id="featureChat" type="checkbox">
+      </label>
+
+      <label class="switch-row">
+        <span>Vendor Store</span>
+        <input id="featureVendor" type="checkbox">
+      </label>
+
+      <button id="saveSettingsBtn" class="btn primary">
+        Save Settings
+      </button>
+
+    </div>
+
+  </section>
 
 </main>
 
+<div id="maintenanceModal" class="modal hidden">
 
-<div id="owner-login"
-     class="login-box">
+  <div class="modal-box">
 
-<h2>🔐 Owner Login</h2>
+    <button class="modal-close" data-close="maintenanceModal">
+      ×
+    </button>
 
-<p>
-Authorized Google account required.
-</p>
+    <h2>Maintenance Mode</h2>
 
-<button onclick="ownerLogin()">
-Continue with Google
-</button>
+    <p>
+      Maintenance Mode চালু করলে Public Panel সাময়িকভাবে বন্ধ থাকবে।
+    </p>
+
+    <button id="enableMaintenance" class="btn warning">
+      Enable
+    </button>
+
+    <button id="disableMaintenance" class="btn">
+      Disable
+    </button>
+
+  </div>
 
 </div>
 
-
-<script src="config/config.js"></script>
-
-<script src="js/owner.js"></script>
-
 </body>
-
 </html>
