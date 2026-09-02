@@ -1,84 +1,162 @@
-* {
-    box-sizing: border-box;
-}
+<!DOCTYPE html>
+<html lang="bn">
 
-body {
-    margin: 0;
-    padding: 15px;
-    font-family: Segoe UI, Arial, sans-serif;
-    background: #111827;
-    color: #fff;
-}
+<head>
 
-.owner-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1f2937;
-    padding: 15px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
+<meta charset="UTF-8">
 
-.owner-header button,
-.owner-card button,
-.login-box button {
-    border: 0;
-    padding: 11px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-}
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
 
-.owner-container {
-    max-width: 800px;
-    margin: auto;
-}
+<title>Master AI Platform — Owner</title>
 
-.owner-card {
-    background: #1f2937;
-    padding: 20px;
-    border-radius: 15px;
-    margin-bottom: 15px;
-}
+<meta name="robots"
+content="noindex,nofollow,noarchive">
 
-.owner-card h3 {
-    margin-top: 0;
-}
+<link rel="stylesheet"
+href="css/owner.css">
 
-.owner-card textarea {
-    width: 100%;
-    min-height: 100px;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #4b5563;
-    background: #111827;
-    color: #fff;
-}
+</head>
 
-.owner-card button {
-    background: #2563eb;
-    color: #fff;
-}
+<body>
 
-#owner-agent-result {
-    margin-top: 12px;
-    padding: 12px;
-    background: #111827;
-    border-radius: 8px;
-}
+<header class="owner-header">
 
-.login-box {
-    max-width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    text-align: center;
-    background: #1f2937;
-    border-radius: 15px;
-}
+    <h2>🔐 Master AI — Owner Panel</h2>
 
-.login-box button {
-    background: #2563eb;
-    color: #fff;
-}
+    <button onclick="logoutOwner()">
+        Logout
+    </button>
+
+</header>
+
+
+<main id="owner-app"
+      class="owner-container"
+      hidden>
+
+
+<section class="owner-card">
+
+<h3>🤖 Developer Agent</h3>
+
+<p>
+Manage platform features using the Developer Agent.
+</p>
+
+<textarea
+id="owner-command"
+placeholder="যেমন: নতুন feature যোগ করো...">
+</textarea>
+
+<button onclick="runOwnerAgent()">
+Run Developer Agent
+</button>
+
+<div id="owner-agent-result">
+Ready.
+</div>
+
+</section>
+
+
+<section class="owner-card">
+
+<h3>⚙️ Maintenance Mode</h3>
+
+<p id="maintenance-status">
+Checking...
+</p>
+
+<button onclick="toggleMaintenance()">
+Toggle Maintenance
+</button>
+
+</section>
+
+
+<section class="owner-card">
+
+<h3>💾 Full Platform Export</h3>
+
+<p>
+Export platform configuration and project data.
+</p>
+
+<button onclick="fullExport()">
+📦 Full Export
+</button>
+
+</section>
+
+
+<section class="owner-card">
+
+<h3>🛡️ Security Agent</h3>
+
+<p id="security-status">
+Security Agent: Checking...
+</p>
+
+<button onclick="securityCheck()">
+Run Security Check
+</button>
+
+</section>
+
+
+<section class="owner-card">
+
+<h3>☁️ Storage Manager</h3>
+
+<p id="owner-storage">
+Storage information loading...
+</p>
+
+<button onclick="storageCheck()">
+Check Storage
+</button>
+
+</section>
+
+
+<section class="owner-card">
+
+<h3>🚀 Deployment</h3>
+
+<p>
+Deploy the current platform configuration.
+</p>
+
+<button onclick="deployPlatform()">
+Deploy
+</button>
+
+</section>
+
+</main>
+
+
+<div id="owner-login"
+     class="login-box">
+
+<h2>🔐 Owner Login</h2>
+
+<p>
+Authorized Google account required.
+</p>
+
+<button onclick="ownerLogin()">
+Continue with Google
+</button>
+
+</div>
+
+
+<script src="config/config.js"></script>
+
+<script src="js/owner.js"></script>
+
+</body>
+
+</html>
