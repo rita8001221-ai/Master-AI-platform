@@ -76,10 +76,15 @@
 
     <div class="social-box">
         <input type="text" id="main-search" class="search-bar" placeholder="🔍 Search apps or platforms..." onkeyup="filterCards()">
+        <div class="section-title" style="text-align: left; margin-top: 0; margin-bottom: 10px;">Social Results:</div>
+        
+        <!-- Social Buttons Fixed -->
         <div class="social-buttons">
-            <button class="btn-whatsapp">💬 WhatsApp</button>
-            <button class="btn-youtube">▶️ YouTube</button>
-            <button class="btn-facebook">📘 Facebook</button>
+            <button class="btn-whatsapp" onclick="window.open('YOUR_WHATSAPP_LINK_HERE', '_blank')">💬 WhatsApp</button>
+            <button class="btn-telegram" onclick="window.open('YOUR_TELEGRAM_LINK_HERE', '_blank')">✈️ Telegram</button>
+            <button class="btn-youtube" onclick="window.open('YOUR_YOUTUBE_LINK_HERE', '_blank')">▶️ YouTube</button>
+            <button class="btn-facebook" onclick="window.open('YOUR_FACEBOOK_LINK_HERE', '_blank')">📘 Facebook</button>
+            <button class="btn-instagram" onclick="window.open('YOUR_INSTAGRAM_LINK_HERE', '_blank')">📷 Instagram</button>
         </div>
     </div>
 
@@ -88,14 +93,19 @@
         <button class="follow-btn" id="follow-action-btn" onclick="followAction()">Follow</button>
     </div>
 
-    <div class="section-title">🌐 Public Projects</div>
+    <div class="section-title">🌐 Public Projects (Users)</div>
     <div class="grid-container" id="public-grid">
-        <!-- Add your updated cards here manually after exporting from Owner panel -->
         <div class="card normal-card green-top" data-link="YOUR_LINK_HERE" onclick="handleCardClick(this)">
             <div class="card-icon">📝</div><span class="card-title-text">BLOG</span><br><small style="font-weight: normal; color: #7f8c8d;">Blogs</small>
         </div>
         <div class="card normal-card green-top" data-link="YOUR_LINK_HERE" onclick="handleCardClick(this)">
             <div class="card-icon">🎬</div><span class="card-title-text">VIDEO</span><br><small style="font-weight: normal; color: #7f8c8d;">Videos</small>
+        </div>
+        <div class="card normal-card green-top" data-link="YOUR_LINK_HERE" onclick="handleCardClick(this)">
+            <div class="card-icon">🎮</div><span class="card-title-text">GAME</span><br><small style="font-weight: normal; color: #7f8c8d;">Gaming</small>
+        </div>
+        <div class="card normal-card green-top" data-link="YOUR_LINK_HERE" onclick="handleCardClick(this)">
+            <div class="card-icon">💬</div><span class="card-title-text">CHAT</span><br><small style="font-weight: normal; color: #7f8c8d;">Public</small>
         </div>
     </div>
 
